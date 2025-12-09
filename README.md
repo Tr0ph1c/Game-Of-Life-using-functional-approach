@@ -16,7 +16,7 @@ The functional approach is directly inspired by [this article](https://www.stran
 
 ## The imperative approach
 
-Written in the file `Imperative GOL.py`.  Just open the script with python to start it. `python Imperative GOL.py`
+Written in the file `Imperative GOL.py`.  Just open the script with python to start it. `python "Imperative GOL.py"`
 - Grid where you can click to toggle cells
 - Step by step simulation with customizable tick rate
 - Count of local neighbors displayed on each cell
