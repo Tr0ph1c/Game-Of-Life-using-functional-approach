@@ -2,7 +2,14 @@
 # Inspried by https://www.strangeleaflet.com/conways-game-of-life-a-functional-approach/
 # A very good read. I recommend reading his explanation of the code, originally written in clojure.
 
-from collections import Counter
+def counter(iter, accum={}, index=0):
+    if index == len(iter):
+        return accum
+
+    if iter[index] not in accum: accum[iter[index]] = 0
+    
+    accum[iter[index]] += 1
+    return counter(iter, accum, index+1)
 
 def neighbors(x, y):
     return [
@@ -13,14 +20,14 @@ def neighbors(x, y):
     ]
 
 def step(cells):
-    counts = Counter(
+    counts = counter([
         cell
         for (x, y) in cells
         for cell in neighbors(x, y)
-    )
+    ])
 
     return {
-        cell
-        for cell, n in counts.items()
-        if n == 3 or (n == 2 and cell in cells)
+        (x,y)
+        for ((x, y),n) in counts.items()
+        if n == 3 or (n == 2 and (x,y) in cells)
     }
