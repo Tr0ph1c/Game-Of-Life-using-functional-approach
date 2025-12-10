@@ -2,17 +2,17 @@
 # Inspried by https://www.strangeleaflet.com/conways-game-of-life-a-functional-approach/
 # A very good read. I recommend reading his explanation of the code, originally written in clojure.
 
-def counter_impl(iter, accum, index):
-    if index == len(iter):
+def counter_impl(list, accum, index):
+    if index == len(list):
         return accum
 
-    if iter[index] not in accum: accum[iter[index]] = 0
+    if list[index] not in accum: accum[list[index]] = 0
     
-    accum[iter[index]] += 1
-    return counter_impl(iter, accum, index+1)
+    accum[list[index]] += 1
+    return counter_impl(list, accum, index+1)
 
-def counter(iter):
-    return counter_impl(iter, {}, 0)
+def counter(list):
+    return counter_impl(list, {}, 0)
 
 def neighbors(x, y):
     return [
